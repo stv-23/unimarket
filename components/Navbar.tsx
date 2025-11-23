@@ -38,6 +38,9 @@ export default function Navbar() {
 
   if (pathname === "/") return null;
 
+  // Show login/register buttons only on auth pages
+  const isAuthPage = pathname?.startsWith("/auth");
+
   return (
     <nav className="bg-card/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,6 +75,9 @@ export default function Navbar() {
                   </button>
                   <div className="absolute right-0 w-48 mt-2 origin-top-right bg-card border border-border divide-y divide-border rounded-md shadow-xl outline-none hidden group-hover:block">
                     <div className="py-1">
+                      <Link href="/profile" className="block px-4 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors">
+                        Mi Perfil
+                      </Link>
                       <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors">
                         Cerrar Sesión
                       </button>
@@ -79,7 +85,7 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-            ) : (
+            ) : isAuthPage ? (
               <div className="flex gap-4">
                 <Link href="/auth/login" className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   Iniciar Sesión
@@ -88,7 +94,7 @@ export default function Navbar() {
                   Registrarse
                 </Link>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

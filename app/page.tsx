@@ -33,53 +33,52 @@ export default function HomePage() {
         El marketplace estudiantil donde puedes comprar, vender e intercambiar productos dentro de tu universidad.
       </p>
 
-      <div className="mt-10 flex flex-col sm:flex-row gap-4">
-        {!user ? (
-          <>
-            <Link
-              href="/auth/register"
-              className="px-8 py-3 bg-primary text-primary-foreground rounded-lg shadow-lg shadow-blue-900/20 hover:bg-blue-600 transition-all transform hover:scale-105 font-medium"
-            >
-              Registrarme
-            </Link>
+      {!user ? (
+        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/auth/register"
+            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg shadow-lg shadow-blue-900/20 hover:bg-blue-600 transition-all transform hover:scale-105 font-medium"
+          >
+            Registrarme
+          </Link>
 
-            <Link
-              href="/auth/login"
-              className="px-8 py-3 bg-transparent text-primary border border-primary rounded-lg hover:bg-primary/10 transition-all font-medium"
-            >
-              Iniciar Sesión
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link
-              href="/market/create"
-              className="px-8 py-3 bg-primary text-primary-foreground rounded-lg shadow-lg shadow-blue-900/20 hover:bg-blue-600 transition-all transform hover:scale-105 font-medium"
-            >
-              Vender
-            </Link>
+          <Link
+            href="/auth/login"
+            className="px-8 py-3 bg-transparent text-primary border border-primary rounded-lg hover:bg-primary/10 transition-all font-medium"
+          >
+            Iniciar Sesión
+          </Link>
+        </div>
+      ) : (
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
+          <Link
+            href="/profile/edit"
+            className="group bg-card border border-border rounded-xl p-6 hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+          >
+            <div className="text-4xl mb-4">👤</div>
+            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">Mi Perfil</h3>
+            <p className="text-sm text-muted-foreground mt-2">Revisa o edita tu información personal.</p>
+          </Link>
 
-            <Link
-              href="/chat"
-              className="px-8 py-3 bg-emerald-600 text-white rounded-lg shadow-lg shadow-emerald-900/20 hover:bg-emerald-700 transition-all transform hover:scale-105 font-medium"
-            >
-              Mis Chats
-            </Link>
+          <Link
+            href="/market"
+            className="group bg-card border border-border rounded-xl p-6 hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+          >
+            <div className="text-4xl mb-4">🛍️</div>
+            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">Mercado</h3>
+            <p className="text-sm text-muted-foreground mt-2">Gestiona tus ventas o publicaciones.</p>
+          </Link>
 
-            <Link
-              href="/profile/edit"
-              className="px-8 py-3 bg-secondary text-secondary-foreground rounded-lg shadow-lg hover:bg-secondary/80 transition-all transform hover:scale-105 font-medium"
-            >
-              Editar Perfil
-            </Link>
-          </>
-        )}
-      </div>
+          <Link
+            href="/chat"
+            className="group bg-card border border-border rounded-xl p-6 hover:shadow-2xl hover:shadow-blue-900/20 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+          >
+            <div className="text-4xl mb-4">💬</div>
+            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">Soporte</h3>
+            <p className="text-sm text-muted-foreground mt-2">¿Necesitas ayuda? Contáctanos.</p>
+          </Link>
+        </div>
+      )}
     </main>
   );
 }
-
-
-
-
-
