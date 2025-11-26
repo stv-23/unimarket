@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import TermsAndConditions from "./TermsAndConditions";
-import CookiePolicy from "./CookiePolicy";
 
 interface User {
   id: number;
@@ -128,21 +126,6 @@ export default function UserSidebar({ isOpen, onClose, user, unreadCount = 0 }: 
               })}
             </div>
           </nav>
-
-          {/* Legal Documents Section */}
-          <div className="p-4 border-t border-border">
-            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-4">
-              Legal
-            </p>
-            <div className="space-y-1">
-              <div className="px-4 py-2">
-                <TermsAndConditions />
-              </div>
-              <div className="px-4 py-2">
-                <CookiePolicy />
-              </div>
-            </div>
-          </div>
 
           {/* Logout Button */}
           <div className="p-4 border-t border-border">
