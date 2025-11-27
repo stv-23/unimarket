@@ -18,7 +18,7 @@ export async function POST(req: Request) {
 
 /* 🔧 POR AHORA: Simulación temporal usando localStorage del usuario
    (cuando tengamos base de datos lo reemplazamos) */
-async function getSavedCodeFromDBorLocal(email: string) {
+async function getSavedCodeFromDBorLocal(_email: string) {
   // Esto lo reemplazaremos con BD luego
   return null;
 }

@@ -53,7 +53,7 @@ function ChatContent() {
     fetchConversations();
     const interval = setInterval(fetchConversations, 5000); // Poll for new conversations
     return () => clearInterval(interval);
-  }, [initialConversationId]);
+  }, [initialConversationId, selectedConversation]);
 
   // Fetch messages for selected conversation
   useEffect(() => {

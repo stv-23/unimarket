@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     await prisma.passwordResetToken.delete({ where: { id: resetToken.id } });
 
     return NextResponse.json({ message: "Password updated successfully" });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Error resetting password" }, { status: 500 });
   }
 }

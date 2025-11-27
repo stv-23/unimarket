@@ -1,11 +1,6 @@
 import { NextResponse } from "next/server";
 import jwt, { JwtPayload } from "jsonwebtoken";
 
-interface JWTPayload {
-  username: string;
-  email: string;
-}
-
 export async function GET() {
   try {
     const { cookies } = await import("next/headers");
@@ -38,6 +33,7 @@ export async function GET() {
     }
 
     // No devolver password
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...userWithoutPassword } = user;
 
     return NextResponse.json({ user: userWithoutPassword });
