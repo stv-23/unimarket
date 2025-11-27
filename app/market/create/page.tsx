@@ -15,6 +15,7 @@ export default function CreateProductPage() {
   const [image, setImage] = useState<File | null>(null);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -39,9 +40,10 @@ export default function CreateProductPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
     if (!image) {
-      alert("La imagen es obligatoria");
+      setError("La imagen es obligatoria");
       setLoading(false);
       return;
     }
@@ -63,10 +65,10 @@ export default function CreateProductPage() {
         router.push("/market");
       } else {
         const data = await res.json();
-        alert(data.error || "Error al crear el producto");
+        setError(data.error || "Error al crear el producto");
       }
     } catch {
-      alert("Error de conexión");
+      setError("Error de conexión");
     } finally {
       setLoading(false);
     }
@@ -77,6 +79,7 @@ export default function CreateProductPage() {
       <h1 className="text-3xl font-bold text-primary mb-8 tracking-tight">Vender un producto</h1>
       
       <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-xl shadow-2xl border border-border">
+        {error && <div className="bg-destructive/10 text-destructive p-4 rounded-lg border border-destructive/20">{error}</div>}
         
         <div>
           <label className="block text-sm font-medium text-muted-foreground mb-1">Título</label>
