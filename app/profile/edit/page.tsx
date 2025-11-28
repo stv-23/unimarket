@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function EditProfilePage() {
   const router = useRouter();
@@ -202,10 +203,13 @@ export default function EditProfilePage() {
                 {/* Preview */}
                 <div className="relative">
                   {previewUrl ? (
-                    <img
+                    <Image
                       src={previewUrl}
                       alt="Preview"
-                      className="w-24 h-24 rounded-full object-cover border-4 border-primary/20"
+                      width={96}
+                      height={96}
+                      className="rounded-full object-cover border-4 border-primary/20"
+                      unoptimized={!!selectedImage} // Skip optimization for local preview blobs
                     />
                   ) : (
                     <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center border-4 border-primary/20">

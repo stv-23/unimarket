@@ -20,5 +20,6 @@ export async function POST(req: Request) {
    (cuando tengamos base de datos lo reemplazamos) */
 async function getSavedCodeFromDBorLocal(_email: string) {
   // Esto lo reemplazaremos con BD luego
+  console.log("Verifying code for:", _email);
   return null;
 }

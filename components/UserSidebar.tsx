@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import TermsAndConditions from "./TermsAndConditions";
 import CookiePolicy from "./CookiePolicy";
 
@@ -85,10 +86,12 @@ export default function UserSidebar({ isOpen, onClose, user, unreadCount = 0 }: 
           <div className="p-6 border-b border-border bg-muted/30">
             <div className="flex items-center gap-3">
               {user.profilePicture ? (
-                <img
+                <Image
                   src={user.profilePicture}
                   alt={user.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
+                  width={48}
+                  height={48}
+                  className="rounded-full object-cover border-2 border-primary/20"
                 />
               ) : (
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
