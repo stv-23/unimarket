@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers";
 import { verify } from "jsonwebtoken";
 import { JWTPayload } from "@/lib/types";
-
-const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET || "secret";
 
 export async function PATCH(req: Request) {

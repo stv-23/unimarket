@@ -26,8 +26,7 @@ export async function GET() {
     }
 
     // Buscar usuario en DB para tener datos actualizados
-    const { PrismaClient } = await import("@prisma/client");
-    const prisma = new PrismaClient();
+    const { prisma } = await import("@/lib/prisma");
     
     const user = await prisma.user.findUnique({
       where: { id: Number(decoded.sub) },

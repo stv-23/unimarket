@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
-import { PrismaClient, Prisma } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 import { v2 as cloudinary } from "cloudinary";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { JWTPayload } from "@/lib/types";
-
-const prisma = new PrismaClient();
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

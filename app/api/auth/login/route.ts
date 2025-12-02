@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { serialize } from "cookie";
-
-const prisma = new PrismaClient();
 // const JWT_SECRET = process.env.JWT_SECRET!; // Moved inside handler for safety
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "3600";
 
