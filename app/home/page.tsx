@@ -75,8 +75,8 @@ export default function HomePage() {
             <p className="text-gray-600">Gestiona tus ventas o publicaciones.</p>
           </Link>
 
-          <Link href="/chat" className="bg-white p-6 shadow rounded-xl hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
-            <h3 className="text-lg font-semibold mb-2">Mensajes</h3>
+          <Link href="/ai-support" className="bg-white p-6 shadow rounded-xl hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
+            <h3 className="text-lg font-semibold mb-2">Soporte</h3>
             <p className="text-gray-600">¿Necesitas ayuda? Contáctanos.</p>
           </Link>
 
