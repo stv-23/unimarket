@@ -11,6 +11,12 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
+self.addEventListener('fetch', (event) => {
+  // Simple fetch handler to meet PWA requirements
+  // You can add caching logic here if needed
+  event.respondWith(fetch(event.request));
+});
+
 self.addEventListener('push', (event) => {
   console.log('Push notification received:', event);
   

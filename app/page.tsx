@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { User } from "@/lib/types";
+import InstallPrompt from "@/components/InstallPrompt";
 
 export default function HomePage() {
   const [user, setUser] = useState<User | null>(null);
@@ -80,6 +81,7 @@ export default function HomePage() {
           </Link>
         </div>
       )}
+      <InstallPrompt />
     </main>
   );
 }
