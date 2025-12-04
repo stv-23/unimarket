@@ -9,9 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^2.0.76",
+    "@ai-sdk/openai": "^0.0.72",
     "@prisma/client": "^6.19.0",
-    "ai": "^5.0.106",
+    "ai": "^4.1.45",
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.8.0",
     "cookie": "^1.0.2",
