@@ -24,7 +24,8 @@ export default function AISupportPage() {
     setInput('');
     
     try {
-      await sendMessage({ role: 'user', content: currentInput });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      await sendMessage({ role: 'user', content: currentInput } as any);
     } catch (error) {
       console.error('Failed to send message:', error);
       setInput(currentInput); // Restore input on error
