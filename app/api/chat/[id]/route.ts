@@ -22,7 +22,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       include: { users: true },
     });
 
-    if (!conversation || !conversation.users.some((u) => u.id === userId)) {
+    if (!conversation || !conversation.users.some((u: { id: number }) => u.id === userId)) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
@@ -79,7 +79,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     });
 
     // Send push notifications to other users in conversation
-    const otherUsers = conversation.users.filter((u) => u.id !== userId);
+    const otherUsers = conversation.users.filter((u: { id: number; name: string }) => u.id !== userId);
     
     for (const otherUser of otherUsers) {
       // Get all push subscriptions for this user
